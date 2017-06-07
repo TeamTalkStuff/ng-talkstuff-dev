@@ -1,0 +1,63 @@
+<div class="uk-grid-small uk-flex-middle make-comment-container" uk-grid>
+  <div class="uk-width-auto">
+    <div class="uk-border-rounded bg-white" style="padding: 3px;">
+      <img class="uk-border-rounded" width="25" height="25" src="assets/images/user_avatar.png">
+    </div>
+  </div>
+  <div class="uk-width-expand">
+    <p class="uk-margin-remove">
+      <strong>{{comment.user.displayName}}</strong>
+      {{ comment.comment }}
+    </p>
+    <div class="uk-margin-remove uk-flex uk-flex-middle fg-ts comment-lists-container">
+      <a (click)="replyComment(replyBtn)" #replyBtn>
+        <i class="fa fa-reply"></i>
+        reply
+      </a>
+      <a>
+        <i class="fa fa-thumbs-up"></i>
+        like
+      </a>
+      <span class="uk-label uk-label-warning" *ngIf="comment.comments.length">
+              <i class="fa fa-comments"></i>
+              {{comment.comments.length}}
+            </span>
+    </div>
+  </div>
+
+  <div class="uk-width-1-1 uk-margin-large-left" [ngClass]="{'uk-hidden' : !comment.comments.length}">
+    <div *ngIf="comment.comments.length" class="uk-margin-small-bottom">
+      <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid *ngFor="let com of comment.comments">
+        <div class="uk-width-auto">
+          <div class="uk-border-rounded bg-white" style="padding: 3px;">
+            <img class="uk-border-rounded" width="25" height="25" src="assets/images/user_avatar.png">
+          </div>
+        </div>
+        <div class="uk-width-expand">
+          <p class="uk-margin-remove">
+            <strong>{{com.user.displayName}}</strong>
+            {{ com.comment }}
+          </p>
+          <div class="uk-margin-remove uk-flex uk-flex-middle fg-ts comment-lists-container">
+            <a>
+              <i class="fa fa-thumbs-up"></i>
+              like
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-grid-small uk-flex-middle make-comment-container" uk-grid>
+      <div class="uk-width-auto">
+        <div class="uk-border-circle bg-white" style="padding: 3px;">
+          <img class="uk-border-circle bg-white" width="20" height="20" src="assets/images/user_avatar.png">
+        </div>
+      </div>
+      <div class="uk-width-expand">
+        <input type="text" (keyup)="submitComment($event, comment)"
+               class="uk-input uk-width-1-1" placeholder="write a comment....">
+      </div>
+    </div>
+  </div>
+</div>

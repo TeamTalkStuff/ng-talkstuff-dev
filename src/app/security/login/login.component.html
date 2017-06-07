@@ -1,0 +1,31 @@
+<div class="uk-flex uk-flex-center uk-flex-column">
+  <div class="uk-background-contain uk-width-1-1"
+       uk-scrollspy="cls:uk-animation-slide-bottom-small uk-animation-fade"
+       style="background-image: url(assets/images/tslogo1.png); height: 110px;"></div>
+
+  <div class="uk-width-1-1 uk-margin-remove-top uk-margin-bottom uk-text-center uk-h2"
+       uk-scrollspy="cls:uk-animation-slide-bottom-small uk-animation-fade uk-animation-fast">
+    Login
+  </div>
+
+  <form class="uk-flex uk-margin-top uk-flex-column uk-flex-between"
+        uk-grid #f="ngForm" (ngSubmit)="onLogin(f)">
+
+    <div class="uk-width-1-1" uk-margin>
+      <input class="uk-input uk-width-1-1 uk-form-medium" type="text" ngModel name="username"
+             uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade"
+             placeholder="Username" autofocus required>
+
+      <input class="uk-input uk-width-1-1 uk-form-medium" name="password" type="password" ngModel
+             uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade"
+             placeholder="Password" required>
+    </div>
+
+    <div class="uk-width-1-1" uk-margin>
+      <button class="uk-button bg-orange bg-hover-amber fg-white uk-width-1-1 uk-button-large"
+              uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade"
+              [disabled]="!f.valid"
+              type="submit">Login</button>
+    </div>
+  </form>
+</div>

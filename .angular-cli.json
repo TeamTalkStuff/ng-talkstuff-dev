@@ -1,0 +1,74 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "talkstuff"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "ts_favicon.jpg"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "vendors/datetimepicker/build/css/bootstrap-datetimepicker.min.css",
+        "vendors/oneui/css/bootstrap.min.css",
+        "vendors/oneui/css/oneui.css",
+        "vendors/uikit/css/uikit.min.css",
+        "vendors/metroui/metro.lite.css",
+        "vendors/pace/pace.css",
+        "styles.css"
+      ],
+      "scripts": [
+        "vendors/jquery/jquery.min.js",
+        "vendors/lodash/lodash.js",
+        "vendors/uikit/js/uikit.min.js",
+        "vendors/uikit/js/uikit-icons.min.js",
+        "vendors/moments/moment-with-locales.js",
+        "vendors/bootstrap/js/bootstrap.js",
+        "vendors/datetimepicker/build/js/bootstrap-datetimepicker.min.js",
+        "vendors/pace/pace.min.js",
+        "vendors/masonry/masonry.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<a href="#photo-upload-modal" uk-toggle class="uk-margin-small-right">
+  <i class="fa fa-image"></i> photo
+</a>
+
+<div id="photo-upload-modal" uk-modal #photoModal>
+  <div class="uk-modal-dialog uk-modal-body uk-overflow-hidden">
+
+    <div class="uk-width-medium uk-margin-auto-left uk-height-medium uk-position-top
+    uk-background-contain uk-background-blend-luminosity"
+         style="background-image: url(/assets/images/no-image-icon.png); z-index: -10; opacity: 0.3; margin-top: -70px;">
+    </div>
+    <h2 class="uk-modal-title uk-margin-remove-top">Photo</h2>
+
+    <div class="uk-padding uk-flex uk-flex-column uk-flex-middle uk-flex-space-between" uk-margin>
+
+      <div class="photo-upload media-select-button uk-width-1-1" uk-form-custom>
+        <input type="file" (change)="onFileChange($event)">
+        <div class="uk-text-center">
+          Pick from my computer
+        </div>
+      </div>
+
+      <div class="media-select-button pick-from-gallery uk-width-1-1 uk-text-center">
+        Pick from my gallery
+      </div>
+
+    </div>
+    <app-loader [showLoader]="uploading"></app-loader>
+  </div>
+</div>

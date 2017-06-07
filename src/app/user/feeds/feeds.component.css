@@ -1,0 +1,13 @@
+.feed-controls a {
+  color: #ff6600;
+  padding: 8px 12px;
+  background-color: #f1f1f1;
+  border-radius: 18px;
+  text-decoration: none;
+}
+
+.feed-controls a:hover {
+  color: white;
+  background-color: #ff6600;
+  text-decoration: none;
+}

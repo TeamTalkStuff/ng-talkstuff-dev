@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: white;
+  font-family: 'Didact Gothic', sans-serif !important;
+}
+div, p, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Didact Gothic', sans-serif !important;
+  font-weight: 100;
+}
+
+.fg-ts {
+  color: #ff6600 !important;
+}
+
+.bd-ts {
+  border-color: #ff6600 !important;
+}
+
+.bg-ts {
+  color: white;
+  background-color: #ff6600 !important;
+}
+
+.uk-heading-bullet::before {
+  border-left: 5px solid #ff6600;
+}
+
+.user-dropdown > ul > li a {
+  padding: 10px 15px;
+}
+.user-dropdown > ul > li a:hover {
+  color: white;
+  background-color: #ff6600 !important;
+}
+.uk-notification-message {
+  background-color: #ff6600;
+  color : white !important;
+}
+
+.uk-input:focus, .uk-select:focus, .uk-textarea:focus {
+  border-color: #ff6600;
+}
+
+.parallax-background {
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed !important;
+
+}
+
+.animate-background	{
+  background-position: 0px 0px;
+  background-repeat: repeat-x !important;
+
+  animation: animatedBackground 6s linear infinite;
+}
+
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: 100% 0; }
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+
+  position: relative;
+  margin: 1px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ff6600;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% {
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% {
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+}

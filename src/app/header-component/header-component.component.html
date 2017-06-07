@@ -1,0 +1,53 @@
+<header class="uk-position-relative">
+  <div class="bg-white"
+       style="z-index: 500">
+    <div class="uk-container">
+      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar="mode: click">
+        <a class="uk-navbar-item uk-logo" href="#" style="height: 92px;">
+          <div class="uk-background-contain uk-height-1-1 uk-navbar-item"
+               uk-scrollspy="cls:uk-animation-slide-right-small uk-animation-fade; repeat:true"
+               style="background-image: url(assets/images/tslogo1.png); width: 70px;"></div>
+        </a>
+
+        <div class="uk-navbar-left">
+          <ul class="uk-navbar-nav">
+            <li>
+              <a routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact : true }">Home</a>
+            </li>
+            <li *ngIf="isLoggedIn">
+              <a routerLinkActive="active" routerLink="/user/feeds" [routerLinkActiveOptions]="{exact : true }">My Feeds</a>
+            </li>
+            <li>
+              <a routerLinkActive="active" routerLink="/talk-talk">TalkTalk</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav" *ngIf="!isLoggedIn">
+            <li><a routerLinkActive="active" routerLink="security/login">Login</a></li>
+            <li class=""><a routerLinkActive="active" routerLink="signup">Register</a></li>
+          </ul>
+          <ul class="uk-navbar-nav" *ngIf="isLoggedIn">
+            <li>
+              <a href="#" class="uk-flex uk-flex-middle ">
+                <app-user-avatar-component class="uk-margin-small-right" [imgSrc]="user ? user.metadata.profileMediaSource: null"></app-user-avatar-component>
+                Hello, {{ user ? user.displayName : '' }}
+              </a>
+              <div class="uk-navbar-dropdown uk-margin-remove uk-padding-remove user-dropdown">
+                <ul class="uk-nav uk-navbar-dropdown-nav uk-margin-small-top">
+                  <li><a href="#">Admin</a></li>
+                  <li><a href="#">My Profile</a></li>
+                  <li><a href="#">Pages</a></li>
+                  <li><a href="#">Groups</a></li>
+                  <li class="uk-nav-divider"></li>
+                  <li class="" (click)="logout()"><a>Logout</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,68 @@
+<div class="uk-grid-match uk-grid-collapse" uk-grid>
+  <div class="uk-width-1-2@m uk-margin-auto">
+    <div class="uk-margin-large-top uk-flex uk-flex-center uk-flex-column" *ngIf="saving">
+      <app-loader  [showLoader]="saving"></app-loader>
+      <div class="uk-text-center uk-margin-small-top fg-ts uk-h4">
+        Setting up your account.... Please wait
+      </div>
+    </div>
+    <div *ngIf="!saving" class="uk-flex uk-flex-column uk-padding-large uk-padding-remove-vertical">
+
+      <div class="uk-background-contain uk-width-1-1"
+           uk-scrollspy="cls:uk-animation-slide-bottom-medium uk-animation-fade"
+           style="background-image: url(assets/images/tslogo1.png); height: 110px;"></div>
+
+      <div class="uk-width-1-1 uk-margin-remove-top uk-margin-bottom uk-text-center uk-h2"
+           uk-scrollspy="cls:uk-animation-slide-bottom-small uk-animation-fade">
+        Join <span class="fg-ts">TalkStuff</span>!
+      </div>
+
+      <form class="uk-flex uk-margin-top uk-flex-column uk-flex-between"
+            uk-grid #f="ngForm" (ngSubmit)="register(f)">
+
+        <div class="uk-width-1-1" uk-margin>
+
+          <div class="uk-child-width-1-2@m" uk-grid>
+            <div>
+              <input class="uk-input uk-width-1-1 uk-form-medium" type="text" name="firstName"
+                     uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade"
+                     placeholder="First Name" autofocus ngModel required>
+            </div>
+
+            <div>
+              <input class="uk-input uk-width-1-1 uk-form-medium" name="lastName" type="text"
+                     uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade "
+                     placeholder="Last Name" ngModel required>
+            </div>
+          </div>
+
+          <div>
+            <input class="uk-input uk-width-1-1 uk-form-medium" type="email" name="email"
+                   uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade uk-animation-fast"
+                   placeholder="Email" ngModel required>
+          </div>
+
+          <div class="uk-child-width-1-2@m" uk-grid>
+            <div>
+              <input class="uk-input uk-width-1-1 uk-form-medium" type="text" name="username"
+                     uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade"
+                     placeholder="Username" ngModel required>
+            </div>
+
+            <div>
+              <input class="uk-input uk-width-1-1 uk-form-medium" name="password" type="password"
+                     uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade "
+                     placeholder="Your Password" ngModel required>
+            </div>
+          </div>
+        </div>
+
+        <div class="uk-width-1-1" uk-margin>
+          <button class="uk-button bg-orange bg-hover-amber fg-white uk-width-1-1 uk-button-large"
+                  uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade "
+                  type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

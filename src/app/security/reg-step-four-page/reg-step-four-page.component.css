@@ -1,0 +1,15 @@
+.picture-preview-wrapper {
+  height: 200px;
+}
+
+.picture-preview {
+  border: 2px solid #ff6600;
+  width: 200px;
+  padding: 3px;
+  background-color: rgba(238, 238, 238, 0.22);
+}
+
+.picture-preview-controls {
+  width:55%;
+  min-width: 100px;
+}

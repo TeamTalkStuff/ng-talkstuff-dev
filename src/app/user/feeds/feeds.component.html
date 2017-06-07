@@ -1,0 +1,82 @@
+<div class="uk-flex uk-flex-column" uk-margin>
+  <app-user-summary [user]="user"></app-user-summary>
+
+  <app-make-post (postSaved)="showAddedPost($event)"></app-make-post>
+
+  <div class="uk-width-1-1" uk-margin>
+    <div *ngIf="feeds.length">
+      <div *ngFor="let post of feeds"
+           class="uk-card uk-card-hover uk-border-rounded feed-card uk-card-default uk-box-shadow-small uk-width-1-1 uk-card-small uk-margin">
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <app-user-avatar-component [imgSrc]="post.user.profileMediaSource"></app-user-avatar-component>
+            </div>
+            <div class="uk-width-expand">
+              <h5 class="uk-margin-remove-bottom">{{post.user.displayName}}</h5>
+              <p class="uk-text-meta uk-margin-remove-top">
+                <time [title]="post.postedAt | date:shortDate" uk-tooltip>{{ post.postedAtDiff }}</time>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="uk-card-body">
+          <p class="uk-margin-remove-bottom">{{post.content}}</p>
+          <app-media-attachments [attachments]="post.media"></app-media-attachments>
+          <p class="uk-margin-small-top">
+            <span class="uk-label uk-label-warning uk-border-rounded" *ngIf="post.likes.length">
+              <i class="fa fa-thumbs-o-up"></i>
+              {{post.likes.length}}
+            </span>
+            <span class="uk-label bg-ts fg-white" *ngIf="post.comments.length">
+              <i class="fa fa-comments"></i>
+              {{post.comments.length}}
+            </span>
+          </p>
+        </div>
+        <div class="uk-card-footer">
+          <div class="uk-flex uk-flex-middle uk-flex-between" uk-grid>
+            <div class="uk-width-expand@m">
+              <div class="uk-width-1-1 feed-controls" uk-margin>
+                <a (click)="toggleLike(post)" class="uk-margin-small-right">
+                  <i class="fa" [ngClass]="{'fa-thumbs-down' : post.liked, 'fa-thumbs-o-up' : !post.liked}"></i>
+                  {{ post.liked ? 'Unlike' : 'Like'}}
+                </a>
+                <a class="uk-margin-small-right media-button" (click)="toggleCommentArea(commentBtn)" #commentBtn>
+                  <i class="fa fa-comment"></i> comment
+                </a>
+              </div>
+            </div>
+            <div class="uk-width-auto@m">
+            </div>
+          </div>
+        </div>
+        <div class="uk-card-footer" id="feed-comments"
+             style="background-color: rgba(221, 221, 221, 0.48) !important; display: none;">
+          <div class="comment-lists-wrapper uk-margin-bottom" *ngIf="post.comments.length">
+
+            <app-comment-item *ngFor="let comment of post.comments" [comment]="comment"></app-comment-item>
+
+          </div>
+          <div class="uk-grid-small uk-flex-middle make-comment-container" uk-grid>
+            <div class="uk-width-auto">
+              <div class="uk-border-circle bg-white" style="padding: 3px;">
+                <img class="uk-border-circle bg-white" width="20" height="20" src="assets/images/user_avatar.png">
+              </div>
+            </div>
+            <div class="uk-width-expand">
+              <input type="text" (keyup)="submitComment($event, post)"
+                     class="uk-input uk-width-1-1" placeholder="write a comment....">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-card uk-card-body uk-flex-column uk-flex uk-padding-remove-horizontal bg-white uk-margin" *ngIf="fetchingFeeds">
+      <app-loader [showLoader]="true"></app-loader>
+      <app-loader [showLoader]="true"></app-loader>
+      <app-loader [showLoader]="true"></app-loader>
+    </div>
+  </div>
+</div>

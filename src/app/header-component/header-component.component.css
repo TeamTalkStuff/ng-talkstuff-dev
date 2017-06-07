@@ -1,0 +1,18 @@
+header > div {
+  border-bottom: 2px solid #f3f3f3;
+}
+
+.uk-navbar-container {
+  background-color: transparent;
+}
+
+ul.uk-navbar-nav > li:hover, ul.uk-navbar-nav > li > a.active {
+  background-color: #eeeeee;
+}
+
+ul.uk-navbar-nav > li > a {
+  height: 92px;
+  font-size: 18px;
+  text-transform: none;
+  color: #ff6600;
+}

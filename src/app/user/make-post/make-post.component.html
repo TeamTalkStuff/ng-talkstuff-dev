@@ -1,0 +1,73 @@
+<div class="uk-width-1-1 bg-white make-post uk-margin-bottom">
+  <div class="uk-card uk-card-default uk-card-small uk-width-1-1">
+    <div class="uk-card-header bg-grayLighter">
+      <h4 class="uk-margin-remove-bottom">What's on your mind?</h4>
+    </div>
+
+    <div class="uk-card-body textarea-container">
+        <textarea class="uk-textarea make-post-status"
+                  autofocus name="message" [(ngModel)]="post.content" id=""
+                  placeholder="Write something..."></textarea>
+    </div>
+    <app-loader [showLoader]="saving"></app-loader>
+
+    <!-- images added -->
+    <div class="uk-card-footer" *ngIf="images.length">
+      <div class="uk-width-1-1 uk-grid-small uk-flex uk-flex-middle uk-flex-wrap uk-child-width-1-5@s" uk-grid>
+        <div class="uk-position-relative uk-cover-container uk-transition-toggle" *ngFor="let image of images">
+          <p class="uk-position-top-right uk-width-auto uk-padding-small" uk-margin style="z-index: 10;">
+            <a class="uk-icon-button bg-crimson bg-hover-white fg-hover-crimson fg-white"
+               (click)="deleteMedia(image)"
+               uk-icon="icon: close"></a>
+          </p>
+          <canvas width="100%" height="130px"></canvas>
+          <img [src]="image.source" uk-cover alt="" width="130px">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- video added -->
+    <div class="uk-card-footer video-preview-area" style="display: none;">
+      <div class="uk-width-1-1">
+        <app-video-player [source]="videoUrl"></app-video-player>
+        <div class="video-link uk-grid-small uk-flex uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+            <i class="fa fa-youtube fa-2x"></i>
+          </div>
+          <div class="uk-width-expand">
+            <input type="text" [(ngModel)]="videoUrl"
+                   placeholder="What are you watching?"
+                   class="uk-input uk-width-1-1 uk-form-blank uk-form-small">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- post controls -->
+    <div class="uk-card-footer post-controls">
+      <div class="uk-flex uk-flex-middle uk-flex-between" uk-grid>
+        <div class="uk-width-expand@m">
+          <div class="uk-width-1-1 make-post-btn-icons" uk-margin>
+            <app-photo-upload (uploaded)="showImage($event)"></app-photo-upload>
+            <a href="" class="uk-margin-small-right media-button">
+              <i class="fa fa-music"></i> music
+            </a>
+            <a (click)="showVideoArea(videoBtn)" #videoBtn class="uk-margin-small-right media-button">
+              <i class="fa fa-video-camera"></i> video
+            </a>
+          </div>
+        </div>
+        <div class="uk-width-auto@m">
+          <button class="btn btn-success btn-sm" type="button"
+                  [disabled]="saving"
+                  (click)="onSubmitNewPost()">
+            <i class="fa fa-check"></i>
+            Post
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

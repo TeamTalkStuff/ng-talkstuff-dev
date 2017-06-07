@@ -1,0 +1,14 @@
+<div class="uk-container uk-margin-medium-top uk-position-relative">
+  <div class="uk-position-top-right" *ngIf="errors.length"
+       uk-scrollspy="target: > div; cls:uk-animation-slide-bottom-small; delay: 350"
+  >
+    <div class="uk-alert-warning" uk-alert *ngFor="let error of errors">
+      <a class="uk-alert-close" uk-close (click)="removeError(error)"></a>
+      <p>{{error}}</p>
+    </div>
+  </div>
+  <app-reg-step-one-page *ngIf="currentStage == 1" (stageCompleted)="gotoStageTwo($event)"></app-reg-step-one-page>
+  <app-reg-step-two-page *ngIf="currentStage == 2" (stageCompleted)="gotoStageThree($event)" [user]="user"></app-reg-step-two-page>
+  <app-reg-step-three-page *ngIf="currentStage == 3" (stageCompleted)="gotoStageFour($event)" [user]="user"></app-reg-step-three-page>
+  <app-reg-step-four-page *ngIf="currentStage == 4" (stageCompleted)="finish($event)" [user]="user"></app-reg-step-four-page>
+</div>

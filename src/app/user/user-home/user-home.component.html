@@ -1,0 +1,45 @@
+<div class="bg-lighterGray user-home">
+  <div class="uk-container">
+    <div class="uk-grid-small uk-padding-small" uk-margin uk-grid>
+      <div class="uk-width-1-6@m nav-area uk-padding-small uk-padding-remove-horizontal">
+        <ul class="uk-nav uk-nav-default uk-margin">
+          <li class="uk-nav-header">
+            My Account
+          </li>
+          <li><a routerLinkActive="active" routerLink="feeds">
+            <i class="fa fa-home"></i> Feeds</a>
+          </li>
+          <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+          <li><a href="#"><i class="fa fa-user"></i> Wallet</a></li>
+          <li><a href="#"><i class="fa fa-envelope"></i> Messages</a></li>
+          <li><a href="#"><i class="fa fa-cogs"></i> Settings</a></li>
+        </ul>
+
+        <ul class="uk-nav uk-default uk-margin">
+          <li class="uk-nav-header">My Business</li>
+          <li><a href="#"><i class="fa fa-briefcase"></i> Business Listings</a></li>
+          <li><a href="#"><i class="fa fa-shopping-bag"></i> Market-Place Listings</a></li>
+        </ul>
+
+        <ul class="uk-nav uk-default uk-margin">
+          <li class="uk-nav-header">My Community</li>
+          <li><a href="#"><i class="fa fa-newspaper-o"></i> Pages</a></li>
+          <li><a href="#"><i class="fa fa-group"></i> Groups</a></li>
+          <li><a href="#"><i class="fa fa-users"></i> Friends</a></li>
+        </ul>
+
+        <ul class="uk-nav uk-default uk-margin">
+          <li><a href="#"><i class="fa fa-image"></i> My Gallery</a></li>
+          <li><a href="#"><i class="fa fa-music"></i> My Music</a></li>
+          <li><a href="#"><i class="fa fa-video-camera"></i> My Videos</a></li>
+        </ul>
+      </div>
+      <div class="uk-width-1-2@m content-area uk-padding-small">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="uk-width-expand@m ads-area">
+
+      </div>
+    </div>
+  </div>
+</div>

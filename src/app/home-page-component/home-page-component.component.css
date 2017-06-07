@@ -1,0 +1,20 @@
+.main-block-area .main-block-item {
+  min-height: 450px;
+}
+
+.stats-icon-wrapper {
+  padding: 5px;
+  border: 1px solid #ff6600;
+}
+.stats-icon {
+  padding: 15px;
+}
+.stats-header {
+  font-size: 29px;
+  font-weight: 200;
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.grid .grid-item {
+  min-height: 200px;
+}

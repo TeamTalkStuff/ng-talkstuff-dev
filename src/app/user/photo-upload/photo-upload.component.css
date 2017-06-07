@@ -1,0 +1,27 @@
+a {
+  color: #ff6600;
+  padding: 8px 12px;
+  background-color: #f1f1f1;
+  border-radius: 18px;
+}
+a:hover {
+  color: white;
+  background-color: #ff6600;
+  text-decoration: none;
+}
+
+div#photo-upload-modal .media-select-button {
+  color: #ff6600;
+  padding: 17px;
+  background-color: #f1f1f1;
+  border-radius: 25px;
+}
+
+div#photo-upload-modal .media-select-button:hover {
+  color: white;
+  background-color: #ff6600 !important;
+}
+
+.pick-from-gallery {
+  cursor: pointer;
+}

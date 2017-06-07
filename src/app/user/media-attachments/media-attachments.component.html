@@ -1,0 +1,6 @@
+<div class="uk-margin-remove uk-padding-remove uk-width-1-1" *ngIf="attachments.length" uk-margin>
+  <div class="uk-width-1-1" *ngFor="let media of attachments">
+    <img [src]="media.source"class="uk-border-rounded" *ngIf="media.type === 'Image'" width="100%" alt="">
+    <app-video-player *ngIf="media.type === 'Video'" [source]="media.source"></app-video-player>
+  </div>
+</div>

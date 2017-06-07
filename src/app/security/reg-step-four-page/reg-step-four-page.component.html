@@ -1,0 +1,61 @@
+<div class="uk-grid-match uk-grid-collapse" uk-grid>
+  <div class="uk-width-1-2@m uk-margin-auto">
+    <div class="uk-margin-large-top uk-flex uk-flex-center uk-flex-column" *ngIf="saving">
+      <app-loader  [showLoader]="saving"></app-loader>
+      <div class="uk-text-center uk-margin-small-top fg-ts uk-h4">
+        {{progressMessage}}
+      </div>
+    </div>
+    <div *ngIf="!saving" class="uk-flex uk-flex-column uk-padding-large uk-padding-remove-vertical">
+
+      <div class="uk-width-1-1 uk-margin-bottom">
+        <div class="uk-flex uk-flex-middle uk-flex-center uk-grid-collapse uk-grid-match uk-margin-remove-left" uk-grid>
+
+          <div class="uk-background-contain uk-background-center-right uk-width-auto"
+               uk-scrollspy="cls:uk-animation-slide-right-small uk-animation-fade"
+               style="background-image: url(assets/images/tslogo1.png); height: 70px; width: 70px;"></div>
+
+          <div class="uk-width-expand uk-text-left uk-h4">
+            <p class="uk-margin-remove uk-text-lead"
+               uk-scrollspy="cls:uk-animation-slide-left-small uk-animation-fade">
+              <span class="fg-ts">Great job,</span> {{user.firstName}}
+            </p>
+            <p class="uk-margin-remove"
+               uk-scrollspy="cls:uk-animation-slide-top-small uk-animation-fade">Upload a profile pic...</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="uk-flex uk-margin-top uk-flex-column uk-flex-between"
+            uk-grid #f="ngForm" (ngSubmit)="finishReg()">
+
+        <div class="uk-margin uk-margin-large-bottom uk-width-1-1 uk-flex uk-flex-column uk-flex-center" uk-grid>
+          <div class="picture-preview-wrapper uk-width-1-1">
+            <div class="picture-preview uk-margin-auto uk-margin-small-bottom uk-height-1-1 uk-border-circle">
+              <div class="uk-cover-container uk-height-1-1 uk-width-1-1 uk-background-contain uk-border-circle"
+              [ngStyle]="{'background-image': 'url(' + imgSrc + ')'}">
+              </div>
+            </div>
+            <div class="uk-width-1-1 uk-flex uk-flex-between picture-preview-controls uk-margin-auto">
+              <button class="btn uk-button-default" type="button" (click)="clearImage()">Clear</button>
+              <div uk-form-custom>
+                <input type="file" accept="image/jpeg" (change)="readImage($event)" #imgCtrl>
+                <button class="btn bg-ts bg-hover-amber fg-hover-white">Select Image</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="uk-width-1-1 uk-child-width-1-2@m uk-flex uk-flex-between uk-flex-middle uk-margin-remove uk-padding-large uk-padding-remove-vertical" uk-grid>
+          <button class="uk-button uk-button-default" type="button" (click)="skipStage()">skip</button>
+
+          <button class="uk-button uk-button-primary" type="submit" [disabled]="imgSrc == defaultImg">finish</button>
+        </div>
+        <div class="uk-margin-bottom">
+          <p class="uk-text-meta uk-text-center">Image should be 200px by 200px for best experience</p>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

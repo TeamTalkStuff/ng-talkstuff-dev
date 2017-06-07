@@ -1,0 +1,14 @@
+.user-home {
+  min-height: calc(100% - 92px);
+}
+.nav-area > ul > li > a {
+  padding: 7px 12px;
+  color: black;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+.nav-area > ul > li > a:hover, .nav-area > ul > li > a.active {
+  color: white;
+  background-color: #ff6600 !important;
+}

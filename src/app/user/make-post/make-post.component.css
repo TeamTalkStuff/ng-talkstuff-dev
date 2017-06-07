@@ -1,0 +1,19 @@
+div.textarea-container {
+  height: 110px;
+}
+textarea.make-post-status {
+  border: none;
+  height: 100%;
+  resize: none;
+}
+.make-post-btn-icons a {
+  color: #ff6600;
+  padding: 8px 12px;
+  background-color: #f1f1f1;
+  border-radius: 18px;
+}
+.make-post-btn-icons a:hover {
+  color: white;
+  background-color: #ff6600;
+  text-decoration: none;
+}
